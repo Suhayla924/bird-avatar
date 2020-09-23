@@ -10,6 +10,7 @@ let star3;
 let star4;
 let star5;
 let value = 0;
+let sketchStarted = false;
 
 
 function setup() {
@@ -25,63 +26,68 @@ function setup() {
 
 
   createButton("Start").mousePressed(startSketch);
+}
+function startSkecth(){
   mic = new p5.AudioIn()
   mic.start();
 
-}
-function startSkecth(){
-  console.log('start sketch!')
+  sketchStarted = true;
+
 }
 
 function draw() {
-  //console.log("mic level" + mic.getLevel());
+  if(sketchStarted){
+    //console.log("mic level" + mic.getLevel());
 
-  micLevel = mic.getLevel();
-  angleWag = map(mic.getLevel(), 0, 10, 356, 0);
-  createCanvas(400, 400);
-  background(0, 0, 153);
+    micLevel = mic.getLevel();
+    angleWag = map(mic.getLevel(), 0, 10, 356, 0);
+    createCanvas(400, 400);
+    background(0, 0, 153);
 
-  star1.display();
-  star2.display();
-  star3.display();
-  star4.display();
-  star5.display();
-
-
-  star1.move();
-  star2.move();
-  star3.move();
-  star4.move();
-  star5.move();
-
-  drawMoon();
-
-  drawCloud(mouseX, width * .05, height * .14, 35); // xPos, yPos, ang
-
-  drawCloud(mouseX, mouseY, width * .5, height * .05, 10);
-
-  drawCloud(mouseY, width * .85, height * 25, 11);
-
-  drawBirdBody();
-
-  drawHeadFeathers();
-
-  drawBirdTail();
-
-  drawBackWing(angleJaw);
-
-  drawFrontWing(angleJaw);
-
-  drawBirdBeak();
-
-  drawBirdEye();
-
-  drawBirdEyePupil(angleWag);
+    star1.display();
+    star2.display();
+    star3.display();
+    star4.display();
+    star5.display();
 
 
+    star1.move();
+    star2.move();
+    star3.move();
+    star4.move();
+    star5.move();
 
-  //if (bamYes == true){
-  //circle(width/2, height/2,100);}
+    drawMoon();
+
+    drawCloud(mouseX, width * .05, height * .14, 35); // xPos, yPos, ang
+
+    drawCloud(mouseX, mouseY, width * .5, height * .05, 10);
+
+    drawCloud(mouseY, width * .85, height * 25, 11);
+
+    drawBirdBody();
+
+    drawHeadFeathers();
+
+    drawBirdTail();
+
+    drawBackWing(angleJaw);
+
+    drawFrontWing(angleJaw);
+
+    drawBirdBeak();
+
+    drawBirdEye();
+
+    drawBirdEyePupil(angleWag);
+
+
+
+    //if (bamYes == true){
+    //circle(width/2, height/2,100);}
+
+
+  }
 
 }
 
