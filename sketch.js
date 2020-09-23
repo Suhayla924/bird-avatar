@@ -24,10 +24,13 @@ function setup() {
   star5 = new Star(25, 275, 10, .15);
 
 
-
+  createButton("Start").mousePressed(startSketch);
   mic = new p5.AudioIn()
   mic.start();
 
+}
+function startSkecth(){
+  console.log('start sketch!')
 }
 
 function draw() {
@@ -52,7 +55,7 @@ function draw() {
   star5.move();
 
   drawMoon();
- 
+
   drawCloud(mouseX, width * .05, height * .14, 35); // xPos, yPos, ang
 
   drawCloud(mouseX, mouseY, width * .5, height * .05, 10);
@@ -77,26 +80,26 @@ function draw() {
 
 
 
-  //if (bamYes == true){ 
-  //circle(width/2, height/2,100);} 
+  //if (bamYes == true){
+  //circle(width/2, height/2,100);}
 
 }
 
 function mousePressed() {
 
-  //if the positon of the mouse is inside this region then do this 
-  //syntax is 
+  //if the positon of the mouse is inside this region then do this
+  //syntax is
 
   if (mouseX > width * 0.3 && mouseX < width * 0.8 && mouseY > height * 0.35 && mouseY < height * .65) {
     console.log("mouse beep in here");
     angleJaw = -10;
-   
+
   }
 }
 
 function mouseReleased() {
   angleJaw = 0;
- 
+
 
 }
 
@@ -122,7 +125,7 @@ function drawBirdBody() {
   //bird body color
   fill(128, 128, 255);
   noStroke();
-  //birb body 
+  //birb body
   beginShape();
   ellipse(width * .55, height * .5, width * .5, height * .3, );
   endShape(CLOSE);
